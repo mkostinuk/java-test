@@ -1,0 +1,133 @@
+[
+  {
+    "id": 0,
+    "question": "What is the difference between == and .equals() in Java?",
+    "answers": [
+      {
+        "id": 0,
+        "text": "== checks if objects are identical by reference, while .equals() checks if they are equal by value",
+        "correct": true
+      },
+      {
+        "id": 1,
+        "text": "== compares primitives, and .equals() compares objects.",
+        "correct": false
+      },
+      {
+        "id": 2,
+        "text": "== and .equals() are equivalent and can be used interchangeably to compare objects.",
+        "correct": false
+      },
+      {
+        "id": 3,
+        "text": "Both operators check if objects are equal by value.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "question": "What is method overloading in Java?",
+    "answers": [
+      {
+        "id": 0,
+        "text": "It is the ability to use the same method for different types of objects",
+        "correct": false
+      },
+      {
+        "id": 1,
+        "text": "It is the replacement of one method by another in a subclass.",
+        "correct": false
+      },
+      {
+        "id": 2,
+        "text": "It is the ability to call one method with different parameter",
+        "correct": true
+      },
+      {
+        "id": 3,
+        "text": "It is the use of static methods to process a large amount of data.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "How do you print text to the console in Java?",
+    "answers": [
+      {
+        "id": 0,
+        "text": "System.out.print(\"Hello\");",
+        "correct": true
+      },
+      {
+        "id": 1,
+        "text": "Console.log(\"Hello\");",
+        "correct": false
+      },
+      {
+        "id": 2,
+        "text": "print(\"Hello\");",
+        "correct": false
+      },
+      {
+        "id": 3,
+        "text": "System.output(\"Hello\");",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "Which access modifiers are used for a class if it should be accessible only within the package?",
+    "answers": [
+      {
+        "id": 0,
+        "text": "public",
+        "correct": false
+      },
+      {
+        "id": 1,
+        "text": "private",
+        "correct": false
+      },
+      {
+        "id": 2,
+        "text": "protected",
+        "correct": false
+      },
+      {
+        "id": 3,
+        "text": "No access modifier",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "What is Java Virtual Machine (JVM)?",
+    "answers": [
+      {
+        "id": 0,
+        "text": "It is a virtual machine for running Java programs in interpretation mode.",
+        "correct": false
+      },
+      {
+        "id": 1,
+        "text": "It is an environment for executing Java programs at the hardware level.",
+        "correct": true
+      },
+      {
+        "id": 2,
+        "text": "It is a compiler that translates Java code into machine code",
+        "correct": false
+      },
+      {
+        "id": 3,
+        "text": " It is an integrated development environment for writing Java programs.",
+        "correct": false
+      }
+    ]
+  }
+]
+  
