@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,80 +6,85 @@ body {
 }
 
 h1, h2 {
-    margin: 1rem 0;
+    margin: 10px 0;
 }
 
 p {
-    margin: 0.5rem 0;
+    margin: 5px 0;
 }
 
-/* Header Styles */
+
 header {
-    background-color: #3498db;
-    color: #fff;
-    padding: 1rem 2rem;
+    background-color: #f0f0f0;
+    padding: 20px;
     text-align: center;
 }
 
+h1 {
+    font-size: 2em;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+}
 
+/* Section */
 section {
-    padding: 2rem;
+    padding: 20px;
 }
 
 #testSection {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 1rem;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px;
 }
 
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* Forms */
 form {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin: 1rem 0;
+    justify-content: space-between;
+    margin: 10px 0;
 }
 
-label {
-    display: flex;
-    align-items: center;
-}
-
-input[type="text"], input[type="radio"] {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-button[type="submit"] {
-    background-color: #3498db;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-
+/* Footer */
 footer {
-    background-color: #f1f1f1;
-    padding: 1rem;
+    background-color: #f0f0f0;
     text-align: center;
+    padding: 10px;
+}
+
+/* Questions */
+.container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
 }
 
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 1rem 0;
-}
 
-th, td {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-}
-
-caption {
-    font-weight: bold;
-    padding-bottom: 0.5rem;
-}

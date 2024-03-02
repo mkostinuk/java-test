@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.UUID;
 
 @Getter
+@ToString
 public class User {
     private final String name;
     private final String id;
     private final String ip;
-    @Setter
     private int points;
     private int attempts;
     private final List<Integer> listPoints;

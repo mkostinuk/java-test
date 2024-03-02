@@ -20,6 +20,7 @@ public class FinishServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
+        addToList(user);
         session.setAttribute("user", user);
         session.setAttribute("list_users", allUsers.getUsers());
         resp.sendRedirect("finish_table.jsp");
