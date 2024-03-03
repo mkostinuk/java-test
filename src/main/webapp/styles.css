@@ -56,9 +56,14 @@ caption {
     padding: 10px;
 }
 
-/* Forms */
+
 form {
     display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+#answer_form{
+    display: grid;
     justify-content: space-between;
     margin: 10px 0;
 }
