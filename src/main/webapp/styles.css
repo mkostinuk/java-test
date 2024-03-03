@@ -90,6 +90,13 @@ footer {
     padding: 20px;
     margin: 10px;
 }
-
+#give_up{
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 
