@@ -23,7 +23,8 @@
     </tr>
     <%for (int i = 0; i < userList.size(); i++) {%>
     <tr>
-        <td><b><%=i+1%></b></td>
+        <td><b><%=i + 1%>
+        </b></td>
         <td><%=userList.get(i).getId()%>
         </td>
         <td><%=userList.get(i).getName()%>

@@ -2,7 +2,6 @@
   {
     "id": 0,
     "question": "What is the difference between == and .equals() in Java?",
-    "image": "src/main/images/Java-.equals-method.png",
     "answers": [
       {
         "id": 0,
@@ -29,7 +28,6 @@
   {
     "id": 1,
     "question": "What is method overloading in Java?",
-    "image": "src/main/images/Method-Overloading-and-Overriding.png",
     "answers": [
       {
         "id": 0,
@@ -56,7 +54,6 @@
   {
     "id": 2,
     "question": "How do you print text to the console in Java?",
-    "image": "src/main/images/raf,360x360,075,t,fafafa_ca443f4786.jpg",
     "answers": [
       {
         "id": 0,
@@ -83,7 +80,6 @@
   {
     "id": 3,
     "question": "Which access modifiers are used for a class if it should be accessible only within the package?",
-    "image": "src/main/images/1_6kcr_uOfqwuYcY_7IDbbMA.png",
     "answers": [
       {
         "id": 0,
@@ -110,7 +106,6 @@
   {
     "id": 4,
     "question": "What is Java Virtual Machine (JVM)?",
-     "image": "src/main/images/Xblog-JVMCrashes.png",
     "answers": [
       {
         "id": 0,

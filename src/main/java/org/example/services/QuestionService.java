@@ -14,7 +14,7 @@ import java.util.List;
 
 public class QuestionService {
     private final static Logger logger = LogManager.getLogger(QuestionService.class);
-    private final QuestionsReader questionsReader = new QuestionsReader("C:\\Users\\User2\\IdeaProjects\\module3.max.kostyniuk\\src\\main\\resources\\questions.json");
+    private final QuestionsReader questionsReader = new QuestionsReader("C:\\Users\\mkost\\Desktop\\module3.max.kostyniuk\\src\\main\\resources\\questions.json");
 
 
     private boolean isSurrender(Object next)

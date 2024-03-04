@@ -6,15 +6,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.SneakyThrows;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.example.model.Question;
 import org.example.services.QuestionService;
-import org.example.services.QuestionsReader;
 import org.example.model.User;
 
-import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "QuestionServlet", value = "/questions")
 public class QuestionServlet extends HttpServlet {

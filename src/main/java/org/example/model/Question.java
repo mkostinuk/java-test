@@ -11,7 +11,6 @@ import java.util.List;
 public class Question {
     private int id;
     private String question;
-    private String image;
     private List<Answer> answers;
 
     @Getter

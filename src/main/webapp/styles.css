@@ -62,7 +62,8 @@ form {
     justify-content: space-between;
     margin: 10px 0;
 }
-#answer_form{
+
+#answer_form {
     display: grid;
     justify-content: space-between;
     margin: 10px 0;
@@ -90,7 +91,8 @@ footer {
     padding: 20px;
     margin: 10px;
 }
-#give_up{
+
+#give_up {
     padding: 10px 20px;
     background-color: #ff0000;
     color: white;

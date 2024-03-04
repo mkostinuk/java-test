@@ -1,18 +1,14 @@
 package org.example.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
-import java.time.LocalDateTime;
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
 @Getter
-@ToString
 public class User {
     private final String name;
     private final String id;
