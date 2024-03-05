@@ -14,29 +14,27 @@ import org.example.services.RegistrationService;
 
 import org.example.model.User;
 
-import java.io.IOException;
-
 
 @WebServlet(name = "RegistrationServlet", value = "/registration")
 public class RegistrationServlet extends HttpServlet {
     private final RegistrationService registrationService = new RegistrationService();
-    private static final Logger logger = LogManager.getLogger(RegistrationServlet.class);
+    private static final Logger LOGGER = LogManager.getLogger(RegistrationServlet.class);
 
     @SneakyThrows
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
-        String ip = req.getRemoteAddr();
-        String name = StringUtils.isEmpty(req.getParameter("username")) ? "DEFAULT" : req.getParameter("username");
-        User user = registrationService.register(ip, name);
-        logger.info("User [{}] successfully registered with name : {} , attempts : {}", user.getId(), user.getName(), user.getAttempts());
-        redirecting(resp, session, user);
-    }
-
-    private void redirecting(HttpServletResponse resp, HttpSession session, User user) throws IOException {
+        User user = createUser(req);
+        LOGGER.info("User [{}] successfully registered with name : {} , attempts : {}", user.getId(), user.getName(), user.getAttempts());
         session.setAttribute("user", user);
         session.setAttribute("id", 0);
         resp.sendRedirect("/questions");
+    }
+
+    private User createUser(HttpServletRequest req) {
+        String ip = req.getRemoteAddr();
+        String name = StringUtils.isEmpty(req.getParameter("username")) ? "DEFAULT" : req.getParameter("username");
+        return registrationService.register(ip, name);
     }
 
 

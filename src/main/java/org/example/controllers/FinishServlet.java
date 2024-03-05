@@ -20,16 +20,10 @@ public class FinishServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
-        addToList(user);
+        allUsers.addUser(user);
         session.setAttribute("user", user);
         session.setAttribute("list_users", allUsers.getUsers());
         resp.sendRedirect("finish_table.jsp");
-    }
-    private void addToList(User user){
-        user.addPointToList();
-        if (allUsers.isUnique(user.getIp(), user.getName())) {
-            allUsers.addUser(user);
-        }
     }
 
 }
