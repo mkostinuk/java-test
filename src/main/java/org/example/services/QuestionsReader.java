@@ -14,6 +14,12 @@ public class QuestionsReader {
 
     private final List<Question> questionAnswers;
 
+
+
+   public int getCountOfQuestions() {
+        return questionAnswers.size();
+    }
+
     @SneakyThrows
     public QuestionsReader(String filePath) {
 

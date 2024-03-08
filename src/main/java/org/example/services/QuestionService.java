@@ -41,7 +41,7 @@ public class QuestionService {
 
     @SneakyThrows
     private void redirectingToNextQuestion(HttpServletResponse resp, int id, HttpSession session, User user) {
-        if (id < 4) {
+        if (id < questionsReader.getCountOfQuestions()-1) {
             session.setAttribute("id", ++id);
             resp.sendRedirect("/questions");
             LOGGER.info("User[{}] redirected to next question", user.getId());

@@ -3,7 +3,6 @@ package org.example.base;
 import org.example.model.User;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public class AllUsersSession {
@@ -21,7 +20,7 @@ public class AllUsersSession {
 
     }
 
-    public List<User> getUsers() {
+    public List<User> getUsersFromList() {
         return users.stream()
                 .sorted((o1, o2) -> o2.bestResult()-o1.bestResult()).toList();
     }
@@ -32,8 +31,10 @@ public class AllUsersSession {
     }
 
     public User getUser(String ip, String name) {
-        if (users.stream().anyMatch(s -> s.getIp().equals(ip) && s.getName().equals(name))) {
-            return users.stream().filter(s -> s.getIp().equals(ip) && s.getName().equals(name)).
+        if (users.stream().
+                anyMatch(s -> s.getIp().equals(ip) && s.getName().equals(name))) {
+            return users.stream().
+                    filter(s -> s.getIp().equals(ip) && s.getName().equals(name)).
                     findFirst().
                     orElseThrow(NoSuchElementException::new);
         } else {
