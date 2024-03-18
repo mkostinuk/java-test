@@ -8,7 +8,6 @@ import org.example.model.User;
 public class RegistrationService {
     private final AllUsersSession allUsersSession = AllUsersSession.getInstance();
 
-
     public User register(String ip, String name) {
         User user = allUsersSession.getUser(ip, name);
         user.resetPoints();

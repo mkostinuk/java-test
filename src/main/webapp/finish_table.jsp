@@ -1,8 +1,5 @@
 <%@ page import="java.util.List" %>
 <%@ page import="org.example.model.User" %>
-<%@ page import="java.util.Set" %>
-<%@ page import="java.util.HashSet" %>
-<%@ page import="java.util.Iterator" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -23,9 +20,9 @@
         <th>Best Result</th>
         <th>IP</th>
     </tr>
-    <%for(int i = 0; i< userList.size(); i++) {%>
+    <%for (int i = 0; i < userList.size(); i++) {%>
     <tr>
-        <td><b><%=i+1%>
+        <td><b><%=i + 1%>
         </b></td>
         <td><%=userList.get(i).getId()%>
         </td>

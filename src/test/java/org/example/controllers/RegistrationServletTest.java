@@ -2,26 +2,41 @@ package org.example.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.example.base.AllUsersSession;
-import org.example.model.User;
+import jakarta.servlet.http.HttpSession;
+import lombok.SneakyThrows;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class RegistrationServletTest {
-    @Test
-    void test_new_user_with_empty_name() {
-        String ip = "123", name = "";
-        User user = new User(ip, "DEFAULT");
-        RegistrationServlet registrationServlet = new RegistrationServlet();
-        HttpServletRequest req = Mockito.mock(HttpServletRequest.class);
-        HttpServletResponse resp = Mockito.mock(HttpServletResponse.class);
-        Mockito.when(req.getRemoteAddr()).thenReturn(ip);
-        Mockito.when(req.getParameter("username")).thenReturn(name);
-        AllUsersSession allUsersSession = Mockito.mock(AllUsersSession.class);
-        Mockito.when(allUsersSession.getUser(ip, "DEFAULT")).thenReturn(user);
-        registrationServlet.doPost(req, resp);
-        assertTrue(allUsersSession.getUsersFromList().contains(user));
+    private HttpServletRequest req;
+    private HttpServletResponse resp;
+    private HttpSession session;
+    private RegistrationServlet registrationServlet;
+
+    @BeforeEach
+    void setUp() {
+        req = Mockito.mock(HttpServletRequest.class);
+        resp = Mockito.mock(HttpServletResponse.class);
+        session = Mockito.mock(HttpSession.class);
+        registrationServlet = new RegistrationServlet();
     }
+
+    @Test
+    void test_setting_attributes() {
+        Mockito.when(req.getSession()).thenReturn(session);
+        registrationServlet.doPost(req, resp);
+        Mockito.verify(session).setAttribute(ArgumentMatchers.eq("user"), ArgumentMatchers.any());
+        Mockito.verify(session).setAttribute("id", 0);
+    }
+
+    @SneakyThrows
+    @Test
+    void test_redirecting() {
+        Mockito.when(req.getSession()).thenReturn(session);
+        registrationServlet.doPost(req, resp);
+        Mockito.verify(resp).sendRedirect("/questions");
+    }
+
 }

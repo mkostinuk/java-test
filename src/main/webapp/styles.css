@@ -27,7 +27,7 @@ h1 {
     padding: 10px;
 }
 
-/* Section */
+
 section {
     padding: 20px;
 }
@@ -38,7 +38,7 @@ section {
     margin: 10px;
 }
 
-/* Table */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -78,14 +78,14 @@ button {
     cursor: pointer;
 }
 
-/* Footer */
+
 footer {
     background-color: #f0f0f0;
     text-align: center;
     padding: 10px;
 }
 
-/* Questions */
+
 .container {
     border: 1px solid #ccc;
     padding: 20px;

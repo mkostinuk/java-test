@@ -22,7 +22,7 @@ public class FinishServlet extends HttpServlet {
         User user = (User) session.getAttribute("user");
         allUsers.addUser(user);
         session.setAttribute("user", user);
-        session.setAttribute("list_users", allUsers.getUsersFromList());
+        session.setAttribute("list_users", allUsers.getUsers());
         resp.sendRedirect("finish_table.jsp");
     }
 

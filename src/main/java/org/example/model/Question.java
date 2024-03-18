@@ -7,10 +7,11 @@ import lombok.Setter;
 
 import java.util.List;
 
+@Setter
 @Getter
 public class Question {
     private int id;
-    private String question;
+    private String text;
     private List<Answer> answers;
 
 

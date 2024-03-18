@@ -1,6 +1,5 @@
 package org.example.controllers;
 
-
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,7 +17,8 @@ import org.example.model.User;
 @WebServlet(name = "RegistrationServlet", value = "/registration")
 public class RegistrationServlet extends HttpServlet {
     private final RegistrationService registrationService = new RegistrationService();
-    private static final Logger LOGGER = LogManager.getLogger(RegistrationServlet.class);
+    private final static Logger LOGGER = LogManager.getLogger(RegistrationServlet.class);
+
 
     @SneakyThrows
     @Override

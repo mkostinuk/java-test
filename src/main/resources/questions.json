@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "question": "What is the difference between == and .equals() in Java?",
+    "text": "What is the difference between == and .equals() in Java?",
     "answers": [
       {
         "id": 0,
@@ -27,7 +27,7 @@
   },
   {
     "id": 1,
-    "question": "What is method overloading in Java?",
+    "text": "What is method overloading in Java?",
     "answers": [
       {
         "id": 0,
@@ -53,7 +53,7 @@
   },
   {
     "id": 2,
-    "question": "How do you print text to the console in Java?",
+    "text": "How do you print text to the console in Java?",
     "answers": [
       {
         "id": 0,
@@ -79,7 +79,7 @@
   },
   {
     "id": 3,
-    "question": "Which access modifiers are used for a class if it should be accessible only within the package?",
+    "text": "Which access modifiers are used for a class if it should be accessible only within the package?",
     "answers": [
       {
         "id": 0,
@@ -105,7 +105,7 @@
   },
   {
     "id": 4,
-    "question": "What is Java Virtual Machine (JVM)?",
+    "text": "What is Java Virtual Machine (JVM)?",
     "answers": [
       {
         "id": 0,

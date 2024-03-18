@@ -4,19 +4,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.example.model.Question;
 
-import java.io.File;
+
 import java.io.FileNotFoundException;
-import java.io.IOException;
+
 import java.io.InputStream;
 import java.util.List;
 
-public class QuestionsReader {
 
+public class QuestionsReader {
     private final List<Question> questionAnswers;
 
-
-
-   public int getCountOfQuestions() {
+    public int getCountOfQuestions() {
         return questionAnswers.size();
     }
 
@@ -42,4 +40,5 @@ public class QuestionsReader {
                 .findFirst()
                 .orElse(null);
     }
+
 }

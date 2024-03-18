@@ -20,9 +20,9 @@ public class AllUsersSession {
 
     }
 
-    public List<User> getUsersFromList() {
+    public List<User> getUsers() {
         return users.stream()
-                .sorted((o1, o2) -> o2.bestResult()-o1.bestResult()).toList();
+                .sorted((o1, o2) -> o2.bestResult() - o1.bestResult()).toList();
     }
 
     public void addUser(User user) {
@@ -31,10 +31,8 @@ public class AllUsersSession {
     }
 
     public User getUser(String ip, String name) {
-        if (users.stream().
-                anyMatch(s -> s.getIp().equals(ip) && s.getName().equals(name))) {
-            return users.stream().
-                    filter(s -> s.getIp().equals(ip) && s.getName().equals(name)).
+        if (users.stream().anyMatch(s -> s.getIp().equals(ip) && s.getName().equals(name))) {
+            return users.stream().filter(s -> s.getIp().equals(ip) && s.getName().equals(name)).
                     findFirst().
                     orElseThrow(NoSuchElementException::new);
         } else {
