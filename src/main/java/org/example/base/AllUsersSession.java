@@ -1,16 +1,13 @@
 package org.example.base;
 
-import lombok.Getter;
 import org.example.model.User;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
-@Getter
+
 public class AllUsersSession {
     private static AllUsersSession instance;
-    private final List<User> users = new ArrayList<>();
+    private final Set<User> users = new HashSet<>();
 
     public static AllUsersSession getInstance() {
         if (instance == null) {
@@ -23,18 +20,24 @@ public class AllUsersSession {
 
     }
 
+    public List<User> getUsers() {
+        return users.stream()
+                .sorted((o1, o2) -> o2.bestResult() - o1.bestResult()).toList();
+    }
+
     public void addUser(User user) {
+        user.addPointToList();
         users.add(user);
     }
 
     public User getUser(String ip, String name) {
-        return users.stream().filter(s -> s.getIp().equals(ip) && s.getName().equals(name)).findFirst().get();
-    }
-
-    public boolean isUnique(String ip, String name) {
-        if (users.isEmpty()) {
-            return true;
+        if (users.stream().anyMatch(s -> s.getIp().equals(ip) && s.getName().equals(name))) {
+            return users.stream().filter(s -> s.getIp().equals(ip) && s.getName().equals(name)).
+                    findFirst().
+                    orElseThrow(NoSuchElementException::new);
+        } else {
+            return new User(ip, name);
         }
-        return users.stream().noneMatch(s -> Objects.equals(s.getName(), name) && Objects.equals(s.getIp(), ip));
+
     }
 }

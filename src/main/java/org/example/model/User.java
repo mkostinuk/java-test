@@ -1,33 +1,26 @@
 package org.example.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.UUID;
+import lombok.Getter;
+
+import java.util.*;
 
 @Getter
-@ToString
 public class User {
     private final String name;
     private final String id;
     private final String ip;
     private int points;
     private int attempts;
-    private final List<Integer> listPoints;
+    private final Set<Integer> listPoints;
 
     public User(String ip, String name) {
         this.name = name;
         this.ip = ip;
         id = UUID.randomUUID().toString();
         points = 0;
-        attempts = 1;
-        listPoints = new ArrayList<>();
+        attempts = 0;
+        listPoints = new HashSet<>();
     }
 
     public void resetPoints() {
@@ -50,5 +43,17 @@ public class User {
         if (!listPoints.isEmpty()) {
             return listPoints.stream().max(Comparator.comparingInt(o -> o)).get();
         } else return points;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+        return Objects.equals(name, user.name) && Objects.equals(ip, user.ip);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, ip);
     }
 }

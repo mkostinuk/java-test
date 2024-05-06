@@ -27,7 +27,7 @@ h1 {
     padding: 10px;
 }
 
-/* Section */
+
 section {
     padding: 20px;
 }
@@ -38,7 +38,7 @@ section {
     margin: 10px;
 }
 
-/* Table */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -56,9 +56,15 @@ caption {
     padding: 10px;
 }
 
-/* Forms */
+
 form {
     display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+#answer_form {
+    display: grid;
     justify-content: space-between;
     margin: 10px 0;
 }
@@ -72,19 +78,27 @@ button {
     cursor: pointer;
 }
 
-/* Footer */
+
 footer {
     background-color: #f0f0f0;
     text-align: center;
     padding: 10px;
 }
 
-/* Questions */
+
 .container {
     border: 1px solid #ccc;
     padding: 20px;
     margin: 10px;
 }
 
+#give_up {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 

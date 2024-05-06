@@ -3,37 +3,33 @@ package org.example.services;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.model.Question;
 import org.example.model.User;
 
-import java.io.IOException;
 import java.util.List;
-@AllArgsConstructor
+import java.util.Objects;
+
+
 public class QuestionService {
+    private static final Logger LOGGER = LogManager.getLogger(QuestionService.class);
+    private final QuestionsReader questionsReader = new QuestionsReader("/questions.json");
 
-    private final QuestionsReader questionsReader;
-    private final HttpServletRequest req;
-    private final HttpServletResponse resp;
-    private final HttpSession session;
-    private final User user;
-    private int id;
 
-    private boolean isSurrender(){
-        return req.getParameter("next") != null;
-    }
     @SneakyThrows
-    private boolean checkAnswer()  {
+    private boolean checkAnswer(HttpServletRequest req, User user) {
         if (req.getParameter("answer") != null) {
             if (Boolean.parseBoolean(req.getParameter("answer"))) {
+                LOGGER.info("user [{}] has correctly answered on question", user.getId());
                 user.addPoint();
             }
-            redirectingToNextQuestion(resp, id, session, user);
             return true;
         }
         return false;
     }
+
     @SneakyThrows
     private void redirectingToView(HttpServletResponse resp, int id, HttpSession session) {
         Question question = questionsReader.getQuestionAnswerById(id);
@@ -43,24 +39,29 @@ public class QuestionService {
         resp.sendRedirect("/questions.jsp");
     }
 
-    private void redirectingToNextQuestion(HttpServletResponse resp, int id, HttpSession session, User user) throws IOException {
-        if (id < 4) {
+    @SneakyThrows
+    private void redirectingToNextQuestion(HttpServletResponse resp, int id, HttpSession session, User user) {
+        if (id < questionsReader.getCountOfQuestions() - 1) {
             session.setAttribute("id", ++id);
             resp.sendRedirect("/questions");
+            LOGGER.info("User[{}] redirected to next question", user.getId());
         } else {
+            LOGGER.info("User[{}] has answered on all questions", user.getId());
             resp.sendRedirect("/finish");
         }
     }
+
     @SneakyThrows
-    public void method(){
-        HttpSession session = req.getSession();
-        User user = (User) session.getAttribute("user");
-        if (isSurrender()) {
+    public void questionHandler(HttpServletRequest req, HttpServletResponse resp, HttpSession session, User user) {
+        if (Objects.nonNull(req.getParameter("surrender"))) {
+            LOGGER.info("User [{}] has surrendered", user.getId());
             resp.sendRedirect("/finish");
         } else {
             int id = (int) session.getAttribute("id");
-            if (checkAnswer()){
-                return;}
+            if (checkAnswer(req, user)) {
+                redirectingToNextQuestion(resp, id, session, user);
+                return;
+            }
             redirectingToView(resp, id, session);
         }
     }
